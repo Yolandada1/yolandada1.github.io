@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Yuli Yang — Product Manager</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#fafaf9;--card:#fff;--text:#1c1917;--sec:#78716c;--ter:#a8a29e;--soft:#f5f5f4;--border:#e7e5e4;--accent:#2563eb}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;transition:opacity .2s}a:hover{opacity:.7}
+.container{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+
+/* Hero */
+.hero{text-align:center;padding:60px 0 48px}
+.avatar{width:80px;height:80px;border-radius:50%;background:var(--text);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px;font-weight:700;color:#fff;letter-spacing:-1px}
+.hero h1{font-size:32px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px}
+.hero .subtitle{font-size:15px;color:var(--sec);margin-bottom:16px}
+.hero .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero .links a{font-size:13px;color:var(--sec);border:1px solid var(--border);border-radius:20px;padding:5px 16px;transition:all .2s}
+.hero .links a:hover{background:var(--text);color:#fff;border-color:var(--text)}
+
+/* Section */
+.section{margin-bottom:48px}
+.section-title{font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ter);font-weight:600;margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+
+/* Language Toggle */
+.lang-toggle{display:flex;gap:4px;justify-content:center;margin-bottom:40px}
+.lang-toggle button{background:var(--soft);border:1px solid var(--border);border-radius:20px;padding:5px 16px;cursor:pointer;font-size:12px;color:var(--sec);font-weight:500;transition:all .2s}
+.lang-toggle button.active{background:var(--text);color:#fff;border-color:var(--text)}
+
+/* Cards */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:12px;flex-wrap:wrap}
+.card-header h3{font-size:16px;font-weight:600}
+.card-header .meta{font-size:12px;color:var(--ter);white-space:nowrap}
+.card-header .role{font-size:13px;color:var(--accent);font-weight:500}
+.card p,.card li{font-size:13px;color:var(--sec);line-height:1.7}
+.card ul{padding-left:18px;margin-top:6px}
+.card ul li{margin-bottom:4px}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:500}
+
+/* Project Card Special */
+.project-card{position:relative;overflow:hidden;transition:transform .2s}
+.project-card:hover{transform:translateY(-2px)}
+.project-card .badge{position:absolute;top:12px;right:12px;font-size:10px;background:var(--accent);color:#fff;border-radius:10px;padding:2px 10px;font-weight:600}
+.project-link{display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:13px;font-weight:500;color:var(--accent)}
+
+/* Skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.skill-card h4{font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text)}
+.skill-card p{font-size:12px;color:var(--sec);line-height:1.6}
+
+/* Education */
+.edu-item{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start}
+.edu-dot{width:10px;height:10px;border-radius:50%;background:var(--text);margin-top:6px;flex-shrink:0}
+.edu-content h3{font-size:15px;font-weight:600}
+.edu-content .school-meta{font-size:12px;color:var(--ter)}
+.edu-content .courses{font-size:12px;color:var(--sec);margin-top:4px}
+
+/* Footer */
+.footer{text-align:center;padding:32px 0;border-top:1px solid var(--border);margin-top:40px}
+.footer p{font-size:12px;color:var(--ter)}
+
+/* Responsive */
+@media(max-width:600px){
+  .hero{padding:40px 0 32px}
+  .hero h1{font-size:26px}
+  .card-header{flex-direction:column;gap:4px}
+  .skill-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- Language Toggle -->
+<div class="lang-toggle">
+  <button class="active" onclick="toggleLang('en')">English</button>
+  <button onclick="toggleLang('zh')">中文</button>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="avatar">Y</div>
+  <h1 id="h-name">Yuli Yang</h1>
+  <p class="subtitle" id="h-sub">Product Manager · MS in Computer Science @ Northeastern University</p>
+  <div class="links">
+    <a href="mailto:YuliYang88@outlook.com">✉ Email</a>
+    <a href="https://github.com/Yolandada1" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/" target="_blank">LinkedIn</a>
+  </div>
+</div>
+
+<!-- About -->
+<div class="section">
+  <div class="section-title" id="s-about">ABOUT</div>
+  <div class="card">
+    <p id="t-about">Product-minded builder with a unique blend of Computer Science (Northeastern, GPA 3.8/4.0) and Marketing & Psychology (Southwest University, Top 7%). Experienced in platform product design, data-driven decision making, and cross-functional collaboration at JD.com and DiDi. Passionate about turning user insights into product solutions that drive measurable business impact.</p>
+  </div>
+</div>
+
+<!-- Experience -->
+<div class="section">
+  <div class="section-title" id="s-exp">EXPERIENCE</div>
+
+  <div class="card">
+    <div class="card-header">
+      <div><h3>JD.com</h3><span class="role" id="r1">Technical Product Manager Intern</span></div>
+      <span class="meta">Oct – Dec 2025</span>
+    </div>
+    <ul>
+      <li id="e1a">Led product design for Service Provider Workbench and Marketplace Expansion, standardizing service delivery and exit workflows.</li>
+      <li id="e1b">Designed a standardized exit process integrating fulfillment, after-sales, settlement, compliance, and risk control validations.</li>
+      <li id="e1c">Rebuilt non-periodic service fulfillment flows covering 276 service types (25% of total), enabling reliable settlement and risk management.</li>
+      <li id="e1d">Built NPS dashboards for service quality analysis by time and service dimension.</li>
+    </ul>
+    <div class="tag-row">
+      <span class="tag" style="background:#2563eb15;color:#2563eb">Platform Product</span>
+      <span class="tag" style="background:#7c3aed15;color:#7c3aed">Process Design</span>
+      <span class="tag" style="background:#05966915;color:#059669">Data Dashboard</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div><h3>DiDi</h3><span class="role" id="r2">Product Manager Intern</span></div>
+      <span class="meta">May – Sep 2025</span>
+    </div>
+    <ul>
+      <li id="e2a">Designed "User Quotation" feature for moving services, achieving 31% adoption rate covering nearly one-third of related orders.</li>
+      <li id="e2b">Built high-precision address collection system for autonomous vehicles from 0→1, increasing recommended address usage by 6%.</li>
+      <li id="e2c">Improved BD operational efficiency through CRM product enhancements, reducing fulfillment failures from address inaccuracies.</li>
+    </ul>
+    <div class="tag-row">
+      <span class="tag" style="background:#2563eb15;color:#2563eb">User Experience</span>
+      <span class="tag" style="background:#dc262615;color:#dc2626">0→1 Product</span>
+      <span class="tag" style="background:#d9770615;color:#d97706">CRM</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div><h3>JD.com</h3><span class="role" id="r3">Data Analytics Intern</span></div>
+      <span class="meta">May – Jul 2024</span>
+    </div>
+    <ul>
+      <li id="e3a">Built 10+ sales dashboards tracking GMV, order progress, and regional/industry performance, driving GMV target achievement above 90%.</li>
+      <li id="e3b">Applied RFM modeling for KA customer analysis, increasing high-value customer conversion by 8%.</li>
+    </ul>
+    <div class="tag-row">
+      <span class="tag" style="background:#05966915;color:#059669">Data Analysis</span>
+      <span class="tag" style="background:#2563eb15;color:#2563eb">RFM Model</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div><h3>NetEase</h3><span class="role" id="r4">Ad Operations Intern</span></div>
+      <span class="meta">Mar – Jul 2023</span>
+    </div>
+    <ul>
+      <li id="e4a">Optimized ad placement strategies through A/B testing, improving overall ROI to 2.0+.</li>
+      <li id="e4b">Managed KOL partnerships and budget allocation based on data-driven insights.</li>
+    </ul>
+    <div class="tag-row">
+      <span class="tag" style="background:#d9770615;color:#d97706">A/B Testing</span>
+      <span class="tag" style="background:#db277715;color:#db2777">Marketing</span>
+    </div>
+  </div>
+</div>
+
+<!-- Projects -->
+<div class="section">
+  <div class="section-title" id="s-proj">PROJECTS</div>
+
+  <div class="card project-card">
+    <div class="badge">Live</div>
+    <div class="card-header">
+      <div><h3>LifeLog</h3><span class="role" id="p1r">Personal Project · Product Design & Development</span></div>
+      <span class="meta">2025</span>
+    </div>
+    <p id="p1d">A calendar-centric life journaling PWA with structured daily tracking (todos, mood, score, diary), time investment analytics, multi-dimensional insights (by tag, mood, monthly/yearly summaries), and cloud sync via Supabase. Designed and built end-to-end, from competitive analysis to deployment.</p>
+    <div class="tag-row">
+      <span class="tag" style="background:#2563eb15;color:#2563eb">React</span>
+      <span class="tag" style="background:#7c3aed15;color:#7c3aed">Supabase</span>
+      <span class="tag" style="background:#05966915;color:#059669">PWA</span>
+      <span class="tag" style="background:#d9770615;color:#d97706">Product Design</span>
+    </div>
+    <a class="project-link" href="https://lifelog-inky.vercel.app" target="_blank">View Live Demo →</a>
+  </div>
+
+  <div class="card project-card" style="opacity:0.6">
+    <div class="card-header">
+      <div><h3 id="p2t">More Projects Coming Soon</h3><span class="role" id="p2r">Stay tuned...</span></div>
+    </div>
+    <p id="p2d">Additional projects will be added here as they are completed.</p>
+  </div>
+</div>
+
+<!-- Education -->
+<div class="section">
+  <div class="section-title" id="s-edu">EDUCATION</div>
+  <div class="edu-item">
+    <div class="edu-dot"></div>
+    <div class="edu-content">
+      <h3>Northeastern University <span style="font-weight:400;font-size:13px;color:var(--ter)">— Seattle, WA</span></h3>
+      <div class="school-meta" id="edu1">M.S. in Computer Science · GPA 3.8/4.0 · 2023 – 2026</div>
+      <div class="courses" id="edu1c">A/B Testing, Data Analysis, Algorithms, Data Visualization, Machine Learning</div>
+    </div>
+  </div>
+  <div class="edu-item">
+    <div class="edu-dot" style="background:var(--sec)"></div>
+    <div class="edu-content">
+      <h3 id="edu2t">Southwest University <span style="font-weight:400;font-size:13px;color:var(--ter)">— Chongqing, China</span></h3>
+      <div class="school-meta" id="edu2">Double Major: Marketing & Applied Psychology · Top 7% · 2018 – 2022</div>
+      <div class="courses" id="edu2c">Statistics, Business Analytics, Consumer Behavior, Market Research, Strategic Management</div>
+    </div>
+  </div>
+</div>
+
+<!-- Skills -->
+<div class="section">
+  <div class="section-title" id="s-skills">SKILLS</div>
+  <div class="skill-grid">
+    <div class="skill-card">
+      <h4 id="sk1t">Product</h4>
+      <p id="sk1d">Requirement Analysis, Process Design, A/B Testing, User Behavior Analysis, PRD, Prototyping (Axure, Modao)</p>
+    </div>
+    <div class="skill-card">
+      <h4 id="sk2t">Data & Technical</h4>
+      <p id="sk2d">SQL, Python, Java, Excel, PowerBI, Data Visualization, RFM Modeling</p>
+    </div>
+    <div class="skill-card">
+      <h4 id="sk3t">Tools & Languages</h4>
+      <p id="sk3d">Xmind, Figma, Git, React, Supabase · English (IELTS 6.5, CET-6) · Mandarin (Native)</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>© 2025 Yuli Yang · Built with ☕ and curiosity</p>
+</div>
+
+</div>
+
+<script>
+const zh = {
+  "h-name": "杨钰丽",
+  "h-sub": "产品经理 · Northeastern University 计算机硕士",
+  "s-about": "关于我",
+  "t-about": "兼具计算机（Northeastern University，GPA 3.8/4.0）和市场营销与心理学（西南大学，专业前7%）的复合背景。曾在京东、滴滴担任产品经理实习，擅长平台产品设计、数据驱动决策和跨部门协作。热衷于将用户洞察转化为可落地的产品方案，驱动可量化的业务增长。",
+  "s-exp": "实习经历",
+  "r1": "技术产品经理实习",
+  "e1a": "负责服务商工作台和服务市场拓供的产品工作，推进服务交付与退出机制的标准化。",
+  "e1b": "设计标准化退店流程，整合订单履约、售后纠纷、结算、合规与风控等关键校验项。",
+  "e1c": "重构276个非周期服务的履约流程（占比25%），为退店、结算与风控提供可靠基础。",
+  "e1d": "新增 NPS 数据看板，支持按时间和服务维度分析服务质量。",
+  "r2": "产品经理实习",
+  "e2a": "设计并上线「我来报价」功能，功能使用率达31%，覆盖近三成搬运订单。",
+  "e2b": "从0→1构建无人车高精度地址采集体系，推荐地址使用率提升6%。",
+  "e2c": "通过CRM产品优化提升BD作业效率，减少因地址偏差导致的履约问题。",
+  "r3": "数据分析实习",
+  "e3a": "搭建10+销售数据看板，追踪GMV、订单进度等核心指标，推动GMV目标达成率超90%。",
+  "e3b": "基于RFM模型分析KA客户价值，高价值客户转化率提升8%。",
+  "r4": "广告投放实习",
+  "e4a": "通过A/B测试优化投放策略，整体ROI提升至2.0+。",
+  "e4b": "基于数据分析管理KOL合作与预算分配。",
+  "s-proj": "项目经历",
+  "p1r": "个人项目 · 产品设计与开发",
+  "p1d": "一款以日历为核心的结构化生活日志 PWA，支持每日待办（按时段分组+时间投入追踪）、心情/评分记录、日记，以及多维度洞见（标签/心情/月度/年度总结）。从竞品分析到设计开发部署全程独立完成，基于 React + Supabase 实现云端同步。",
+  "p2t": "更多项目即将上线",
+  "p2r": "敬请期待...",
+  "p2d": "后续项目完成后将在此更新。",
+  "s-edu": "教育背景",
+  "edu1": "计算机硕士 · GPA 3.8/4.0 · 2023 – 2026",
+  "edu1c": "A/B测试、数据分析、算法、数据可视化、机器学习",
+  "edu2": "市场营销/应用心理学双学位 · 专业前7% · 2018 – 2022",
+  "edu2c": "统计学、商业分析、消费者行为学、市场调研、战略管理",
+  "s-skills": "技能特长",
+  "sk1t": "产品能力",
+  "sk1d": "需求分析、流程设计、A/B测试、用户行为分析、PRD撰写、原型设计（Axure、墨刀）",
+  "sk2t": "数据与技术",
+  "sk2d": "SQL、Python、Java、Excel、PowerBI、数据可视化、RFM建模",
+  "sk3t": "工具与语言",
+  "sk3d": "Xmind、Figma、Git、React、Supabase · 英语（雅思6.5、CET-6）· 普通话（母语）",
+};
+const en = {};
+
+// Save original English text
+document.addEventListener('DOMContentLoaded', () => {
+  Object.keys(zh).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) en[id] = el.textContent;
+  });
+});
+
+function toggleLang(lang) {
+  const texts = lang === 'zh' ? zh : en;
+  Object.entries(texts).forEach(([id, text]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  });
+  document.querySelectorAll('.lang-toggle button').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === (lang === 'zh' ? '中文' : 'English'));
+  });
+}
+</script>
+
+</body>
+</html>
