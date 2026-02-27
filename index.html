@@ -4,327 +4,373 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Yuli Yang — Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#fafaf9;--card:#fff;--text:#1c1917;--sec:#78716c;--ter:#a8a29e;--soft:#f5f5f4;--border:#e7e5e4;--accent:#2563eb}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none;transition:opacity .2s}a:hover{opacity:.7}
-.container{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+:root{--bg:#fafaf9;--card:#fff;--text:#1c1917;--sec:#57534e;--ter:#a8a29e;--soft:#f5f5f4;--border:#e7e5e4;--accent:#2563eb;--purple:#7c3aed;--green:#059669;--orange:#d97706;--pink:#db2777;--red:#dc2626}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none;transition:all .2s}a:hover{opacity:.8}
+.container{max-width:820px;margin:0 auto;padding:0 24px 80px}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes wave{0%{transform:rotate(0deg)}15%{transform:rotate(14deg)}30%{transform:rotate(-8deg)}40%{transform:rotate(14deg)}50%{transform:rotate(-4deg)}60%{transform:rotate(10deg)}100%{transform:rotate(0deg)}}
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}.fade-up.visible{opacity:1;transform:translateY(0)}
+.wave-emoji{display:inline-block;animation:wave 2s ease-in-out infinite;transform-origin:70% 70%}
+.float{animation:float 3s ease-in-out infinite}
+
+/* Lang Toggle */
+.lang-bar{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 0;text-align:center}
+.lang-toggle{display:inline-flex;gap:2px;background:var(--soft);border-radius:20px;padding:2px}
+.lang-toggle button{background:none;border:none;border-radius:18px;padding:5px 18px;cursor:pointer;font-size:12px;color:var(--ter);font-weight:500;transition:all .2s;font-family:inherit}
+.lang-toggle button.active{background:var(--text);color:#fff}
 
 /* Hero */
-.hero{text-align:center;padding:60px 0 48px}
-.avatar{width:80px;height:80px;border-radius:50%;background:var(--text);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px;font-weight:700;color:#fff;letter-spacing:-1px}
-.hero h1{font-size:32px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px}
-.hero .subtitle{font-size:15px;color:var(--sec);margin-bottom:16px}
-.hero .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.hero .links a{font-size:13px;color:var(--sec);border:1px solid var(--border);border-radius:20px;padding:5px 16px;transition:all .2s}
-.hero .links a:hover{background:var(--text);color:#fff;border-color:var(--text)}
+.hero{text-align:center;padding:56px 0 40px;position:relative}
+.hero::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.04) 0%,transparent 70%);pointer-events:none}
+.avatar{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;font-weight:700;color:#fff;letter-spacing:-1px;box-shadow:0 8px 24px rgba(37,99,235,.15);transition:transform .3s}
+.avatar:hover{transform:scale(1.08) rotate(3deg)}
+.hero h1{font-size:34px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px}
+.hero .subtitle{font-size:15px;color:var(--sec);margin-bottom:20px;line-height:1.5}
+.hero .links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .links a{font-size:13px;color:var(--sec);border:1px solid var(--border);border-radius:20px;padding:6px 18px;transition:all .25s;background:var(--card)}
+.hero .links a:hover{background:var(--text);color:#fff;border-color:var(--text);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
 
 /* Section */
-.section{margin-bottom:48px}
-.section-title{font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ter);font-weight:600;margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-
-/* Language Toggle */
-.lang-toggle{display:flex;gap:4px;justify-content:center;margin-bottom:40px}
-.lang-toggle button{background:var(--soft);border:1px solid var(--border);border-radius:20px;padding:5px 16px;cursor:pointer;font-size:12px;color:var(--sec);font-weight:500;transition:all .2s}
-.lang-toggle button.active{background:var(--text);color:#fff;border-color:var(--text)}
+.section{margin-bottom:52px}
+.section-title{font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--ter);font-weight:600;margin-bottom:24px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.section-title .emoji{font-size:18px}
 
 /* Cards */
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
-.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:12px;flex-wrap:wrap}
-.card-header h3{font-size:16px;font-weight:600}
-.card-header .meta{font-size:12px;color:var(--ter);white-space:nowrap}
-.card-header .role{font-size:13px;color:var(--accent);font-weight:500}
-.card p,.card li{font-size:13px;color:var(--sec);line-height:1.7}
-.card ul{padding-left:18px;margin-top:6px}
-.card ul li{margin-bottom:4px}
-.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.tag{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:500}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.02);transition:all .3s;position:relative;overflow:hidden}
+.card:hover{box-shadow:0 8px 24px rgba(0,0,0,.06);transform:translateY(-2px)}
+.card::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
+.card-accent-blue::before{background:var(--accent)}
+.card-accent-purple::before{background:var(--purple)}
+.card-accent-green::before{background:var(--green)}
+.card-accent-orange::before{background:var(--orange)}
+.card-accent-pink::before{background:var(--pink)}
+.card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:12px;flex-wrap:wrap}
+.card-header h3{font-size:17px;font-weight:700;display:flex;align-items:center;gap:6px}
+.card-header .meta{font-size:12px;color:var(--ter);white-space:nowrap;background:var(--soft);padding:3px 10px;border-radius:10px}
+.card-header .role{font-size:13px;color:var(--sec);font-weight:500;margin-top:2px}
+.card p,.card li{font-size:13px;color:var(--sec);line-height:1.8}
+.card ul{padding-left:0;margin-top:8px;list-style:none}
+.card ul li{margin-bottom:6px;padding-left:16px;position:relative}
+.card ul li::before{content:"→";position:absolute;left:0;color:var(--accent);font-size:12px;font-weight:700}
+.highlight{background:linear-gradient(120deg,rgba(37,99,235,.08) 0%,rgba(124,58,237,.08) 100%);border-radius:4px;padding:0 4px;font-weight:600;color:var(--text)}
 
-/* Project Card Special */
-.project-card{position:relative;overflow:hidden;transition:transform .2s}
-.project-card:hover{transform:translateY(-2px)}
-.project-card .badge{position:absolute;top:12px;right:12px;font-size:10px;background:var(--accent);color:#fff;border-radius:10px;padding:2px 10px;font-weight:600}
-.project-card .card-header .meta{margin-right:60px}
-.project-link{display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:13px;font-weight:500;color:var(--accent)}
+/* Tags */
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-size:11px;padding:4px 12px;border-radius:12px;font-weight:600;transition:transform .2s}
+.tag:hover{transform:scale(1.05)}
+.tag-blue{background:#2563eb12;color:#2563eb}
+.tag-purple{background:#7c3aed12;color:#7c3aed}
+.tag-green{background:#05966912;color:#059669}
+.tag-orange{background:#d9770612;color:#d97706}
+.tag-pink{background:#db277712;color:#db2777}
+.tag-red{background:#dc262612;color:#dc2626}
+
+/* Project */
+.project-card{border:2px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(135deg,var(--accent),var(--purple)) border-box;transition:all .3s}
+.project-card:hover{box-shadow:0 12px 32px rgba(37,99,235,.12)}
+.project-card::before{display:none}
+.badge{display:inline-block;font-size:10px;background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff;border-radius:10px;padding:3px 12px;font-weight:700;letter-spacing:.02em}
+.project-link{display:inline-flex;align-items:center;gap:4px;margin-top:14px;font-size:13px;font-weight:600;color:var(--accent);padding:6px 16px;border:1px solid var(--accent);border-radius:20px;transition:all .25s}
+.project-link:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
+
+/* Stats Row */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.stat{text-align:center;padding:10px 8px;background:var(--soft);border-radius:10px}
+.stat .num{font-size:22px;font-weight:700;color:var(--accent)}
+.stat .label{font-size:11px;color:var(--ter);margin-top:2px}
 
 /* Skills */
-.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.skill-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
-.skill-card h4{font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text)}
-.skill-card p{font-size:12px;color:var(--sec);line-height:1.6}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .3s}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.05)}
+.skill-card h4{font-size:14px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.skill-card p{font-size:12px;color:var(--sec);line-height:1.7}
+.skill-bar{height:4px;background:var(--soft);border-radius:2px;margin-top:8px;overflow:hidden}
+.skill-bar-fill{height:100%;border-radius:2px;transition:width 1s ease}
 
 /* Education */
-.edu-item{display:flex;gap:16px;margin-bottom:16px;align-items:flex-start}
-.edu-dot{width:10px;height:10px;border-radius:50%;background:var(--text);margin-top:6px;flex-shrink:0}
-.edu-content h3{font-size:15px;font-weight:600}
-.edu-content .school-meta{font-size:12px;color:var(--ter)}
-.edu-content .courses{font-size:12px;color:var(--sec);margin-top:4px}
+.edu-item{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
+.edu-dot{width:12px;height:12px;border-radius:50%;margin-top:5px;flex-shrink:0;box-shadow:0 0 0 4px var(--soft)}
+.edu-content h3{font-size:16px;font-weight:600}
+.edu-content .school-meta{font-size:12px;color:var(--ter);margin-top:2px}
+.edu-content .courses{font-size:12px;color:var(--sec);margin-top:6px;padding:8px 12px;background:var(--soft);border-radius:8px;line-height:1.7}
 
 /* Footer */
 .footer{text-align:center;padding:32px 0;border-top:1px solid var(--border);margin-top:40px}
 .footer p{font-size:12px;color:var(--ter)}
+.footer .heart{display:inline-block;color:var(--pink);animation:float 2s ease-in-out infinite}
 
 /* Responsive */
-@media(max-width:600px){
-  .hero{padding:40px 0 32px}
+@media(max-width:640px){
+  .hero{padding:40px 0 28px}
   .hero h1{font-size:26px}
-  .card-header{flex-direction:column;gap:4px}
+  .card-header{flex-direction:column;gap:6px}
+  .card{padding:18px 20px}
   .skill-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:repeat(3,1fr)}
+  .stat .num{font-size:18px}
 }
 </style>
 </head>
 <body>
 
-<div class="container">
-
-<!-- Language Toggle -->
-<div class="lang-toggle">
-  <button class="active" onclick="toggleLang('en')">English</button>
-  <button onclick="toggleLang('zh')">中文</button>
+<!-- Lang Bar -->
+<div class="lang-bar">
+  <div class="lang-toggle">
+    <button class="active" onclick="toggleLang('en')">English</button>
+    <button onclick="toggleLang('zh')">中文</button>
+  </div>
 </div>
 
+<div class="container">
+
 <!-- Hero -->
-<div class="hero">
-  <div class="avatar">Y</div>
-  <h1 id="h-name">Yuli Yang</h1>
+<div class="hero fade-up">
+  <div class="avatar float">Y</div>
+  <h1><span id="h-name">Yuli Yang</span> <span class="wave-emoji">👋</span></h1>
   <p class="subtitle" id="h-sub">Product Manager · MS in Computer Science @ Northeastern University</p>
   <div class="links">
     <a href="mailto:YuliYang88@outlook.com">✉ Email</a>
-    <a href="https://github.com/Yolandada1" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/Yolandada1" target="_blank">🐙 GitHub</a>
+    <a href="https://www.linkedin.com/in/" target="_blank">💼 LinkedIn</a>
   </div>
 </div>
 
 <!-- About -->
-<div class="section">
-  <div class="section-title" id="s-about">ABOUT</div>
+<div class="section fade-up">
+  <div class="section-title"><span class="emoji">✨</span> <span id="s-about">ABOUT</span></div>
   <div class="card">
-    <p id="t-about">Product-minded builder with a unique blend of Computer Science (Northeastern, GPA 3.8/4.0) and Marketing & Psychology (Southwest University, Top 7%). Experienced in platform product design, data-driven decision making, and cross-functional collaboration at JD.com and DiDi. Passionate about turning user insights into product solutions that drive measurable business impact.</p>
+    <p id="t-about">Product-minded builder with a unique blend of <span class="highlight">Computer Science</span> (Northeastern, GPA 3.8/4.0) and <span class="highlight">Marketing & Psychology</span> (Southwest University, Top 7%). Experienced in platform product design, data-driven decision making, and cross-functional collaboration at JD.com and DiDi. Passionate about turning user insights into product solutions that drive measurable business impact.</p>
   </div>
 </div>
 
 <!-- Experience -->
-<div class="section">
-  <div class="section-title" id="s-exp">EXPERIENCE</div>
+<div class="section fade-up">
+  <div class="section-title"><span class="emoji">🚀</span> <span id="s-exp">EXPERIENCE</span></div>
 
-  <div class="card">
+  <!-- JD PM -->
+  <div class="card card-accent-blue fade-up">
     <div class="card-header">
-      <div><h3 id="c1">JD.com</h3><span class="role" id="r1">Technical Product Manager Intern</span></div>
+      <div><h3 id="c1">🏢 JD.com</h3><div class="role" id="r1">Technical Product Manager Intern</div></div>
       <span class="meta">Oct – Dec 2025</span>
     </div>
     <ul>
       <li id="e1a">Led product design for Service Provider Workbench and Marketplace Expansion, standardizing service delivery and exit workflows.</li>
       <li id="e1b">Designed a standardized exit process integrating fulfillment, after-sales, settlement, compliance, and risk control validations.</li>
-      <li id="e1c">Rebuilt non-periodic service fulfillment flows covering 276 service types (25% of total), enabling reliable settlement and risk management.</li>
+      <li id="e1c">Rebuilt non-periodic service fulfillment flows covering <span class="highlight">276 service types (25%)</span>, enabling reliable settlement and risk management.</li>
       <li id="e1d">Built NPS dashboards for service quality analysis by time and service dimension.</li>
     </ul>
     <div class="tag-row">
-      <span class="tag" style="background:#2563eb15;color:#2563eb">Platform Product</span>
-      <span class="tag" style="background:#7c3aed15;color:#7c3aed">Process Design</span>
-      <span class="tag" style="background:#05966915;color:#059669">Data Dashboard</span>
+      <span class="tag tag-blue">Platform Product</span>
+      <span class="tag tag-purple">Process Design</span>
+      <span class="tag tag-green">Data Dashboard</span>
     </div>
   </div>
 
-  <div class="card">
+  <!-- DiDi -->
+  <div class="card card-accent-purple fade-up">
     <div class="card-header">
-      <div><h3 id="c2">DiDi</h3><span class="role" id="r2">Product Manager Intern</span></div>
+      <div><h3 id="c2">🚗 DiDi</h3><div class="role" id="r2">Product Manager Intern</div></div>
       <span class="meta">May – Sep 2025</span>
     </div>
     <ul>
-      <li id="e2a">Designed "User Quotation" feature for moving services, achieving 31% adoption rate covering nearly one-third of related orders.</li>
-      <li id="e2b">Built high-precision address collection system for autonomous vehicles from 0→1, increasing recommended address usage by 6%.</li>
+      <li id="e2a">Designed "User Quotation" feature for moving services, achieving <span class="highlight">31% adoption rate</span> covering nearly one-third of related orders.</li>
+      <li id="e2b">Built high-precision address collection system for autonomous vehicles from <span class="highlight">0→1</span>, increasing recommended address usage by 6%.</li>
       <li id="e2c">Improved BD operational efficiency through CRM product enhancements, reducing fulfillment failures from address inaccuracies.</li>
     </ul>
     <div class="tag-row">
-      <span class="tag" style="background:#2563eb15;color:#2563eb">User Experience</span>
-      <span class="tag" style="background:#dc262615;color:#dc2626">0→1 Product</span>
-      <span class="tag" style="background:#d9770615;color:#d97706">CRM</span>
+      <span class="tag tag-purple">User Experience</span>
+      <span class="tag tag-red">0→1 Product</span>
+      <span class="tag tag-orange">CRM</span>
     </div>
   </div>
 
-  <div class="card">
+  <!-- JD Data -->
+  <div class="card card-accent-green fade-up">
     <div class="card-header">
-      <div><h3 id="c3">JD.com</h3><span class="role" id="r3">Data Analytics Intern</span></div>
+      <div><h3 id="c3">📊 JD.com</h3><div class="role" id="r3">Data Analytics Intern</div></div>
       <span class="meta">May – Jul 2024</span>
     </div>
     <ul>
-      <li id="e3a">Built 10+ sales dashboards tracking GMV, order progress, and regional/industry performance, driving GMV target achievement above 90%.</li>
-      <li id="e3b">Applied RFM modeling for KA customer analysis, increasing high-value customer conversion by 8%.</li>
+      <li id="e3a">Built Excel dashboards tracking order status, logistics, GMV by industry & region, identifying trends and anomalies to drive <span class="highlight">GMV target achievement above 90%</span>.</li>
+      <li id="e3b">Applied RFM modeling to evaluate KA customer value, built GMV prediction models to analyze acquisition and conversion metrics.</li>
+      <li id="e3c">Developed refined customer operation strategies, improving high-value customer conversion and new customer contribution by <span class="highlight">8%</span>.</li>
     </ul>
+    <div class="stats-row">
+      <div class="stat"><div class="num" id="st3a">10+</div><div class="label" id="st3al">Dashboards</div></div>
+      <div class="stat"><div class="num" id="st3b">20+</div><div class="label" id="st3bl">Reports</div></div>
+      <div class="stat"><div class="num" id="st3c">30+</div><div class="label" id="st3cl">Data Sheets</div></div>
+    </div>
     <div class="tag-row">
-      <span class="tag" style="background:#05966915;color:#059669">Data Analysis</span>
-      <span class="tag" style="background:#2563eb15;color:#2563eb">RFM Model</span>
+      <span class="tag tag-green">Data Visualization</span>
+      <span class="tag tag-blue">RFM Model</span>
+      <span class="tag tag-orange">GMV Prediction</span>
     </div>
   </div>
 
-  <div class="card">
+  <!-- NetEase -->
+  <div class="card card-accent-orange fade-up">
     <div class="card-header">
-      <div><h3 id="c4">NetEase</h3><span class="role" id="r4">Ad Operations Intern</span></div>
+      <div><h3 id="c4">🎮 NetEase</h3><div class="role" id="r4">Ad Operations Intern</div></div>
       <span class="meta">Mar – Jul 2023</span>
     </div>
     <ul>
-      <li id="e4a">Optimized ad placement strategies through A/B testing, improving overall ROI to 2.0+.</li>
-      <li id="e4b">Managed KOL partnerships and budget allocation based on data-driven insights.</li>
+      <li id="e4a">Researched adult education market via analytics platforms, screening high-quality KOLs based on engagement, audience profiles, and niche positioning.</li>
+      <li id="e4b">Managed end-to-end KOL partnerships with <span class="highlight">100K+ follower</span> influencers: negotiation, monitoring, data tracking, and strategy optimization.</li>
+      <li id="e4c">Explored CPS/CPA models beyond traditional placement, and optimized ad creatives via A/B testing (copy, timing, KOL mix), achieving <span class="highlight">ROI 2.0+</span>.</li>
     </ul>
+    <div class="stats-row">
+      <div class="stat"><div class="num" id="st4a">10+</div><div class="label" id="st4al">Campaigns</div></div>
+      <div class="stat"><div class="num" id="st4b">2.0+</div><div class="label" id="st4bl">ROI</div></div>
+      <div class="stat"><div class="num" id="st4c">¥100K+</div><div class="label" id="st4cl">Revenue</div></div>
+    </div>
     <div class="tag-row">
-      <span class="tag" style="background:#d9770615;color:#d97706">A/B Testing</span>
-      <span class="tag" style="background:#db277715;color:#db2777">Marketing</span>
+      <span class="tag tag-orange">A/B Testing</span>
+      <span class="tag tag-pink">KOL Marketing</span>
+      <span class="tag tag-blue">Data-Driven</span>
     </div>
   </div>
 </div>
 
 <!-- Projects -->
-<div class="section">
-  <div class="section-title" id="s-proj">PROJECTS</div>
-
-  <div class="card project-card">
-    <div class="badge">Live</div>
+<div class="section fade-up">
+  <div class="section-title"><span class="emoji">💡</span> <span id="s-proj">PROJECTS</span></div>
+  <div class="card project-card fade-up">
     <div class="card-header">
-      <div><h3>LifeLog</h3><span class="role" id="p1r">Personal Project · Product Design & Development</span></div>
+      <div>
+        <h3>📱 LifeLog <span class="badge">Live</span></h3>
+        <div class="role" id="p1r">Personal Project · Product Design & Development</div>
+      </div>
       <span class="meta">2025</span>
     </div>
-    <p id="p1d">A calendar-centric life journaling PWA with structured daily tracking (todos, mood, score, diary), time investment analytics, multi-dimensional insights (by tag, mood, monthly/yearly summaries), and cloud sync via Supabase. Designed and built end-to-end, from competitive analysis to deployment.</p>
+    <p id="p1d">A calendar-centric life journaling PWA with structured daily tracking (todos by time period + time investment tracking), mood/score recording, diary, and multi-dimensional insights (by tag, mood, monthly/yearly summaries with interactive charts). Designed and built end-to-end, from competitive analysis to cloud deployment.</p>
     <div class="tag-row">
-      <span class="tag" style="background:#2563eb15;color:#2563eb">React</span>
-      <span class="tag" style="background:#7c3aed15;color:#7c3aed">Supabase</span>
-      <span class="tag" style="background:#05966915;color:#059669">PWA</span>
-      <span class="tag" style="background:#d9770615;color:#d97706">Product Design</span>
+      <span class="tag tag-blue">React</span>
+      <span class="tag tag-purple">Supabase</span>
+      <span class="tag tag-green">PWA</span>
+      <span class="tag tag-orange">Product Design</span>
     </div>
     <a class="project-link" href="https://lifelog-inky.vercel.app" target="_blank" id="p1link">View Live Demo →</a>
   </div>
-
-  <div class="card project-card" style="opacity:0.6">
-    <div class="card-header">
-      <div><h3 id="p2t">More Projects Coming Soon</h3><span class="role" id="p2r">Stay tuned...</span></div>
-    </div>
-    <p id="p2d">Additional projects will be added here as they are completed.</p>
+  <div class="card fade-up" style="border-style:dashed;opacity:.5;text-align:center;padding:28px">
+    <p id="p2d" style="color:var(--ter)">🚧 More projects coming soon...</p>
   </div>
 </div>
 
 <!-- Education -->
-<div class="section">
-  <div class="section-title" id="s-edu">EDUCATION</div>
-  <div class="edu-item">
-    <div class="edu-dot"></div>
+<div class="section fade-up">
+  <div class="section-title"><span class="emoji">🎓</span> <span id="s-edu">EDUCATION</span></div>
+  <div class="edu-item fade-up">
+    <div class="edu-dot" style="background:var(--accent)"></div>
     <div class="edu-content">
       <h3>Northeastern University <span style="font-weight:400;font-size:13px;color:var(--ter)">— Seattle, WA</span></h3>
       <div class="school-meta" id="edu1">M.S. in Computer Science · GPA 3.8/4.0 · 2023 – 2026</div>
-      <div class="courses" id="edu1c">A/B Testing, Data Analysis, Algorithms, Data Visualization, Machine Learning</div>
+      <div class="courses" id="edu1c">📚 A/B Testing · Data Analysis · Algorithms · Data Visualization · Machine Learning</div>
     </div>
   </div>
-  <div class="edu-item">
-    <div class="edu-dot" style="background:var(--sec)"></div>
+  <div class="edu-item fade-up">
+    <div class="edu-dot" style="background:var(--purple)"></div>
     <div class="edu-content">
-      <h3 id="edu2t">Southwest University <span style="font-weight:400;font-size:13px;color:var(--ter)">— Chongqing, China</span></h3>
+      <h3 id="edu2t">Southwest University <span style="font-weight:400;font-size:13px;color:var(--ter)" id="edu2loc">— Chongqing, China</span></h3>
       <div class="school-meta" id="edu2">Double Major: Marketing & Applied Psychology · Top 7% · 2018 – 2022</div>
-      <div class="courses" id="edu2c">Statistics, Business Analytics, Consumer Behavior, Market Research, Strategic Management</div>
+      <div class="courses" id="edu2c">📚 Statistics · Business Analytics · Consumer Behavior · Market Research · Strategic Management</div>
     </div>
   </div>
 </div>
 
 <!-- Skills -->
-<div class="section">
-  <div class="section-title" id="s-skills">SKILLS</div>
+<div class="section fade-up">
+  <div class="section-title"><span class="emoji">⚡</span> <span id="s-skills">SKILLS</span></div>
   <div class="skill-grid">
-    <div class="skill-card">
-      <h4 id="sk1t">Product</h4>
+    <div class="skill-card fade-up">
+      <h4 id="sk1t">🎯 Product</h4>
       <p id="sk1d">Requirement Analysis, Process Design, A/B Testing, User Behavior Analysis, PRD, Prototyping (Axure, Modao)</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:90%;background:var(--accent)"></div></div>
     </div>
-    <div class="skill-card">
-      <h4 id="sk2t">Data & Technical</h4>
+    <div class="skill-card fade-up">
+      <h4 id="sk2t">📈 Data & Technical</h4>
       <p id="sk2d">SQL, Python, Java, Excel, PowerBI, Data Visualization, RFM Modeling</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:85%;background:var(--purple)"></div></div>
     </div>
-    <div class="skill-card">
-      <h4 id="sk3t">Tools & Languages</h4>
+    <div class="skill-card fade-up">
+      <h4 id="sk3t">🛠 Tools & Languages</h4>
       <p id="sk3d">Xmind, Figma, Git, React, Supabase · English (IELTS 6.5, CET-6) · Mandarin (Native)</p>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:80%;background:var(--green)"></div></div>
     </div>
   </div>
 </div>
 
 <!-- Footer -->
-<div class="footer">
-  <p>© 2025 Yuli Yang · Built with ☕ and curiosity</p>
+<div class="footer fade-up">
+  <p>© 2025 Yuli Yang · Built with <span class="heart">♥</span> and curiosity</p>
 </div>
 
 </div>
 
 <script>
+// Scroll animation
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// Language
 const zh = {
-  "h-name": "杨钰丽",
-  "h-sub": "产品经理 · Northeastern University 计算机硕士",
-  "s-about": "关于我",
-  "t-about": "兼具计算机（Northeastern University，GPA 3.8/4.0）和市场营销与心理学（西南大学，专业前7%）的复合背景。曾在京东、滴滴担任产品经理实习，擅长平台产品设计、数据驱动决策和跨部门协作。热衷于将用户洞察转化为可落地的产品方案，驱动可量化的业务增长。",
-  "s-exp": "实习经历",
-  "r1": "技术产品经理实习",
-  "e1a": "负责服务商工作台和服务市场拓供的产品工作，推进服务交付与退出机制的标准化。",
-  "e1b": "设计标准化退店流程，整合订单履约、售后纠纷、结算、合规与风控等关键校验项。",
-  "e1c": "重构276个非周期服务的履约流程（占比25%），为退店、结算与风控提供可靠基础。",
-  "e1d": "新增 NPS 数据看板，支持按时间和服务维度分析服务质量。",
-  "r2": "产品经理实习",
-  "e2a": "设计并上线「我来报价」功能，功能使用率达31%，覆盖近三成搬运订单。",
-  "e2b": "从0→1构建无人车高精度地址采集体系，推荐地址使用率提升6%。",
-  "e2c": "通过CRM产品优化提升BD作业效率，减少因地址偏差导致的履约问题。",
-  "r3": "数据分析实习",
-  "e3a": "搭建10+销售数据看板，追踪GMV、订单进度等核心指标，推动GMV目标达成率超90%。",
-  "e3b": "基于RFM模型分析KA客户价值，高价值客户转化率提升8%。",
-  "r4": "广告投放实习",
-  "e4a": "通过A/B测试优化投放策略，整体ROI提升至2.0+。",
-  "e4b": "基于数据分析管理KOL合作与预算分配。",
-  "s-proj": "项目经历",
-  "p1r": "个人项目 · 产品设计与开发",
-  "p1d": "一款以日历为核心的结构化生活日志 PWA，支持每日待办（按时段分组+时间投入追踪）、心情/评分记录、日记，以及多维度洞见（标签/心情/月度/年度总结）。从竞品分析到设计开发部署全程独立完成，基于 React + Supabase 实现云端同步。",
-  "p2t": "更多项目即将上线",
-  "p2r": "敬请期待...",
-  "p2d": "后续项目完成后将在此更新。",
-  "s-edu": "教育背景",
-  "edu1": "计算机硕士 · GPA 3.8/4.0 · 2023 – 2026",
-  "edu1c": "A/B测试、数据分析、算法、数据可视化、机器学习",
-  "edu2": "市场营销/应用心理学双学位 · 专业前7% · 2018 – 2022",
-  "edu2c": "统计学、商业分析、消费者行为学、市场调研、战略管理",
-  "s-skills": "技能特长",
-  "sk1t": "产品能力",
-  "sk1d": "需求分析、流程设计、A/B测试、用户行为分析、PRD撰写、原型设计（Axure、墨刀）",
-  "sk2t": "数据与技术",
-  "sk2d": "SQL、Python、Java、Excel、PowerBI、数据可视化、RFM建模",
-  "sk3t": "工具与语言",
-  "sk3d": "Xmind、Figma、Git、React、Supabase · 英语（雅思6.5、CET-6）· 普通话（母语）",
-  "c1": "京东",
-  "c2": "滴滴",
-  "c3": "京东",
-  "c4": "网易",
-  "p1link": "点击体验 →",
-  "edu2t": "西南大学",
+  "h-name":"杨钰丽","h-sub":"产品经理 · Northeastern University 计算机硕士",
+  "s-about":"关于我","t-about":"兼具计算机（Northeastern University，GPA 3.8/4.0）和市场营销与心理学（西南大学，专业前7%）的复合背景。曾在京东、滴滴担任产品经理实习，擅长平台产品设计、数据驱动决策和跨部门协作。热衷于将用户洞察转化为可落地的产品方案，驱动可量化的业务增长。",
+  "s-exp":"实习经历",
+  "c1":"🏢 京东","r1":"技术产品经理实习",
+  "e1a":"负责服务商工作台和服务市场拓供的产品工作，推进服务交付与退出机制的标准化。",
+  "e1b":"设计标准化退店流程，整合订单履约、售后纠纷、结算、合规与风控等关键校验项。",
+  "e1c":"重构276个非周期服务的履约流程（占比25%），为退店、结算与风控提供可靠基础。",
+  "e1d":"新增 NPS 数据看板，支持按时间和服务维度分析服务质量。",
+  "c2":"🚗 滴滴","r2":"产品经理实习",
+  "e2a":"设计并上线「我来报价」功能，功能使用率达31%，覆盖近三成搬运订单。",
+  "e2b":"从0→1构建无人车高精度地址采集体系，推荐地址使用率提升6%。",
+  "e2c":"通过CRM产品优化提升BD作业效率，减少因地址偏差导致的履约问题。",
+  "c3":"📊 京东","r3":"数据分析实习",
+  "e3a":"基于客户业务数据搭建可视化看板，按行业和区域维度追踪GMV达成、订单进度等核心指标，推动GMV目标达成率超90%。",
+  "e3b":"基于RFM模型评估KA客户价值，构建GMV预测模型，分析拉新转化与新客产出等关键指标。",
+  "e3c":"制定精细化客户运营方案，高价值客户转化率与新客贡献度提升8%。",
+  "st3al":"数据看板","st3bl":"分析报告","st3cl":"数据报表",
+  "c4":"🎮 网易","r4":"广告投放实习",
+  "e4a":"基于西瓜数据等平台研究成人教育市场，结合阅读量、账号赛道、粉丝画像筛选高质量KOL。",
+  "e4b":"独立对接10W+粉丝量级KOL，负责推广全流程：合作谈判、投放监控、数据追踪与策略优化。",
+  "e4c":"探索CPS/CPA结算模式，通过A/B测试优化投放素材与组合，ROI提升至2.0+。",
+  "st4al":"投放周期","st4bl":"投放ROI","st4cl":"创造营收",
+  "s-proj":"项目经历","p1r":"个人项目 · 产品设计与开发",
+  "p1d":"一款以日历为核心的结构化生活日志 PWA，支持每日待办（按时段分组+时间投入追踪）、心情/评分记录、日记，以及多维度洞见（标签/心情/月度/年度总结，含可交互分布图）。从竞品分析到设计开发部署全程独立完成。",
+  "p1link":"点击体验 →","p2d":"🚧 更多项目即将上线...",
+  "s-edu":"教育背景","edu1":"计算机硕士 · GPA 3.8/4.0 · 2023 – 2026",
+  "edu1c":"📚 A/B测试 · 数据分析 · 算法 · 数据可视化 · 机器学习",
+  "edu2t":"西南大学","edu2loc":"— 重庆","edu2":"市场营销/应用心理学双学位 · 专业前7% · 2018 – 2022",
+  "edu2c":"📚 统计学 · 商业分析 · 消费者行为学 · 市场调研 · 战略管理",
+  "s-skills":"技能特长","sk1t":"🎯 产品能力",
+  "sk1d":"需求分析、流程设计、A/B测试、用户行为分析、PRD撰写、原型设计（Axure、墨刀）",
+  "sk2t":"📈 数据与技术","sk2d":"SQL、Python、Java、Excel、PowerBI、数据可视化、RFM建模",
+  "sk3t":"🛠 工具与语言","sk3d":"Xmind、Figma、Git、React、Supabase · 英语（雅思6.5、CET-6）· 普通话（母语）",
 };
-const en = {};
-
-// Save original English text
-document.addEventListener('DOMContentLoaded', () => {
-  Object.keys(zh).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) en[id] = el.textContent;
-  });
-  en["p1link"] = "View Live Demo →";
-  en["edu2t"] = "Southwest University";
+const en={};
+document.addEventListener('DOMContentLoaded',()=>{
+  Object.keys(zh).forEach(id=>{const el=document.getElementById(id);if(el)en[id]=el.textContent});
+  en["p1link"]="View Live Demo →";en["edu2t"]="Southwest University";en["edu2loc"]="— Chongqing, China";
+  // Trigger skill bar animation
+  setTimeout(()=>{document.querySelectorAll('.skill-bar-fill').forEach(el=>{el.style.width=el.style.width})},500);
 });
-
-function toggleLang(lang) {
-  const texts = lang === 'zh' ? zh : en;
-  Object.entries(texts).forEach(([id, text]) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = text;
-  });
-  document.querySelectorAll('.lang-toggle button').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent === (lang === 'zh' ? '中文' : 'English'));
-  });
-  // Handle edu2t span
-  const edu2span = document.querySelector('#edu2t');
-  if(edu2span) {
-    const span = edu2span.querySelector('span');
-    if(span) span.textContent = lang === 'zh' ? '— 重庆' : '— Chongqing, China';
-  }
+function toggleLang(lang){
+  const texts=lang==='zh'?zh:en;
+  Object.entries(texts).forEach(([id,text])=>{const el=document.getElementById(id);if(el)el.textContent=text});
+  document.querySelectorAll('.lang-toggle button').forEach(btn=>{btn.classList.toggle('active',btn.textContent===(lang==='zh'?'中文':'English'))});
 }
 </script>
-
 </body>
 </html>
