@@ -25,6 +25,7 @@ a{color:var(--accent);text-decoration:none;transition:all .2s}a:hover{opacity:.8
 .nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
 .nav-links a{font-size:12px;color:var(--sec);padding:5px 12px;border-radius:18px;border:1px solid var(--border);transition:all .2s;background:var(--card)}
 .nav-links a:hover,.nav-links a.active{background:var(--text);color:#fff;border-color:var(--text)}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
 .lang-toggle{display:inline-flex;gap:2px;background:var(--soft);border-radius:16px;padding:2px;margin-left:4px}
 .lang-toggle button{background:none;border:none;border-radius:14px;padding:4px 12px;cursor:pointer;font-size:11px;color:var(--ter);font-weight:500;transition:all .2s;font-family:inherit}
 .lang-toggle button.active{background:var(--text);color:#fff}
@@ -40,9 +41,7 @@ a{color:var(--accent);text-decoration:none;transition:all .2s}a:hover{opacity:.8
 .hero .links a{font-size:12px;color:var(--sec);border:1px solid var(--border);border-radius:18px;padding:5px 14px;transition:all .25s;background:var(--card)}
 .hero .links a:hover{background:var(--text);color:#fff;border-color:var(--text);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
 
-/* Section */
-.page-section{display:none}.page-section.active{display:block}
-.section{margin-bottom:44px}
+.section{margin-bottom:44px;scroll-margin-top:60px}
 .section-title{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--ter);font-weight:600;margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
 
 /* Cards */
@@ -118,11 +117,13 @@ a{color:var(--accent);text-decoration:none;transition:all .2s}a:hover{opacity:.8
   <div class="nav-inner">
     <span class="nav-brand" onclick="showSection('about')">Yuli Yang</span>
     <div class="nav-links">
-      <a href="#" onclick="showSection('about');return false" class="active" id="nav-about">About</a>
-      <a href="#" onclick="showSection('experience');return false" id="nav-experience">Experience</a>
-      <a href="#" onclick="showSection('campus');return false" id="nav-campus">Campus</a>
-      <a href="#" onclick="showSection('projects');return false" id="nav-projects">Projects</a>
-      <a href="#" onclick="showSection('education');return false" id="nav-education">Education</a>
+      <a href="#sec-about" class="nav-link">About</a>
+      <a href="#sec-education" class="nav-link">Education</a>
+      <a href="#sec-experience" class="nav-link">Experience</a>
+      <a href="#sec-projects" class="nav-link">Projects</a>
+      <a href="#sec-campus" class="nav-link">Campus</a>
+      <a href="#sec-awards" class="nav-link">Awards</a>
+      <a href="#sec-skills" class="nav-link">Skills</a>
       <div class="lang-toggle">
         <button class="active" onclick="toggleLang('en')">EN</button>
         <button onclick="toggleLang('zh')">中</button>
@@ -146,121 +147,112 @@ a{color:var(--accent);text-decoration:none;transition:all .2s}a:hover{opacity:.8
 </div>
 
 <!-- ═══ ABOUT ═══ -->
-<div class="page-section active" id="sec-about">
-  <div class="section fade-up">
-    <div class="section-title">✨ <span id="s-about">ABOUT</span></div>
-    <div class="card">
-      <p id="t-about">Product-minded builder with a unique blend of <span class="highlight">Computer Science</span> (Northeastern, GPA 3.8/4.0) and <span class="highlight">Marketing & Psychology</span> (Southwest University, Top 7%). Experienced in platform product design, data-driven decision making, and cross-functional collaboration at JD.com and DiDi. Passionate about turning user insights into product solutions that drive measurable business impact.</p>
+<div class="section fade-up" id="sec-about">
+  <div class="section-title">✨ <span id="s-about">ABOUT</span></div>
+  <div class="card">
+    <p id="t-about">Product-minded builder with a unique blend of <span class="highlight">Computer Science</span> (Northeastern, GPA 3.8/4.0) and <span class="highlight">Marketing & Psychology</span> (Southwest University, Top 7%). Experienced in platform product design, data-driven decision making, and cross-functional collaboration at JD.com and DiDi. Passionate about turning user insights into product solutions that drive measurable business impact.</p>
+  </div>
+</div>
+
+<!-- ═══ EDUCATION ═══ -->
+<div class="section fade-up" id="sec-education">
+  <div class="section-title">🎓 <span id="s-edu">EDUCATION</span></div>
+  <div class="edu-item fade-up">
+    <div class="edu-dot" style="background:var(--accent)"></div>
+    <div class="edu-content">
+      <h3>Northeastern University 🇺🇸 <span style="font-weight:400;font-size:13px;color:var(--ter)">— Seattle, WA</span></h3>
+      <div class="school-meta" id="edu1">M.S. in Computer Science · GPA 3.8/4.0 · 2023 – 2026</div>
+      <div class="courses" id="edu1c">📚 A/B Testing · Data Analysis · Algorithms · Data Visualization · Machine Learning</div>
     </div>
   </div>
-  <!-- Skills -->
-  <div class="section fade-up">
-    <div class="section-title">⚡ <span id="s-skills">SKILLS</span></div>
-    <div class="skill-grid">
-      <div class="skill-card fade-up"><h4 id="sk1t">🎯 Product</h4><p id="sk1d">Requirement Analysis, Process Design, A/B Testing, User Behavior Analysis, PRD, Prototyping (Axure, Modao)</p><div class="skill-bar"><div class="skill-bar-fill" style="width:90%;background:var(--accent)"></div></div></div>
-      <div class="skill-card fade-up"><h4 id="sk2t">📈 Data & Technical</h4><p id="sk2d">SQL, Python, Java, Excel, PowerBI, Data Visualization, RFM Modeling</p><div class="skill-bar"><div class="skill-bar-fill" style="width:85%;background:var(--purple)"></div></div></div>
-      <div class="skill-card fade-up"><h4 id="sk3t">🛠 Tools & Languages</h4><p id="sk3d">Xmind, Figma, Git, React, Supabase · English (IELTS 6.5, CET-6) · Mandarin (Native)</p><div class="skill-bar"><div class="skill-bar-fill" style="width:80%;background:var(--green)"></div></div></div>
+  <div class="edu-item fade-up">
+    <div class="edu-dot" style="background:var(--purple)"></div>
+    <div class="edu-content">
+      <h3 id="edu2t">Southwest University 🇨🇳 <span style="font-weight:400;font-size:13px;color:var(--ter)" id="edu2loc">— Chongqing, China</span></h3>
+      <div class="school-meta" id="edu2">Double Major: Marketing & Applied Psychology · Top 7% · 2018 – 2022</div>
+      <div class="courses" id="edu2c">📚 Statistics · Business Analytics · Consumer Behavior · Market Research · Strategic Management</div>
     </div>
   </div>
 </div>
 
 <!-- ═══ EXPERIENCE ═══ -->
-<div class="page-section" id="sec-experience">
-  <div class="section fade-up">
-    <div class="section-title">🚀 <span id="s-exp">EXPERIENCE</span></div>
-    <div class="card card-accent-blue fade-up">
-      <div class="card-header"><div><h3 id="c1">🏢 JD.com</h3><div class="role" id="r1">Technical Product Manager Intern</div></div><span class="meta">Oct – Dec 2025</span></div>
-      <ul><li id="e1a">Led product design for Service Provider Workbench and Marketplace Expansion, standardizing service delivery and exit workflows.</li><li id="e1b">Designed a standardized exit process integrating fulfillment, after-sales, settlement, compliance, and risk control validations.</li><li id="e1c">Rebuilt non-periodic service fulfillment flows covering <span class="highlight">276 service types (25%)</span>, enabling reliable settlement and risk management.</li><li id="e1d">Built NPS dashboards for service quality analysis by time and service dimension.</li></ul>
-      <div class="tag-row"><span class="tag tag-blue">Platform Product</span><span class="tag tag-purple">Process Design</span><span class="tag tag-green">Data Dashboard</span></div>
-    </div>
-    <div class="card card-accent-purple fade-up">
-      <div class="card-header"><div><h3 id="c2">🚗 DiDi</h3><div class="role" id="r2">Product Manager Intern</div></div><span class="meta">May – Sep 2025</span></div>
-      <ul><li id="e2a">Designed "User Quotation" feature for moving services, achieving <span class="highlight">31% adoption rate</span> covering nearly one-third of related orders.</li><li id="e2b">Built high-precision address collection system for autonomous vehicles from <span class="highlight">0→1</span>, increasing recommended address usage by 6%.</li><li id="e2c">Improved BD operational efficiency through CRM product enhancements, reducing fulfillment failures from address inaccuracies.</li></ul>
-      <div class="tag-row"><span class="tag tag-purple">User Experience</span><span class="tag tag-red">0→1 Product</span><span class="tag tag-orange">CRM</span></div>
-    </div>
-    <div class="card card-accent-green fade-up">
-      <div class="card-header"><div><h3 id="c3">📊 JD.com</h3><div class="role" id="r3">Data Analytics Intern</div></div><span class="meta">May – Jul 2024</span></div>
-      <ul><li id="e3a">Built Excel dashboards tracking order status, logistics, GMV by industry & region, driving <span class="highlight">GMV target achievement above 90%</span>.</li><li id="e3b">Applied RFM modeling to evaluate KA customer value, built GMV prediction models for acquisition and conversion analysis.</li><li id="e3c">Developed refined customer operation strategies, improving high-value customer conversion and new customer contribution by <span class="highlight">8%</span>.</li></ul>
-      <div class="tag-row"><span class="tag tag-green">Data Visualization</span><span class="tag tag-blue">RFM Model</span><span class="tag tag-orange">GMV Prediction</span></div>
-    </div>
-    <div class="card card-accent-orange fade-up">
-      <div class="card-header"><div><h3 id="c4">🎮 NetEase</h3><div class="role" id="r4">Ad Operations Intern</div></div><span class="meta">Mar – Jul 2023</span></div>
-      <ul><li id="e4a">Researched adult education market via analytics platforms, screening high-quality KOLs based on engagement, audience profiles, and niche positioning.</li><li id="e4b">Managed end-to-end KOL partnerships with <span class="highlight">100K+ follower</span> influencers: negotiation, monitoring, tracking, and strategy optimization.</li><li id="e4c">Explored CPS/CPA models, optimized ad creatives via A/B testing, achieving <span class="highlight">ROI 2.0+</span>.</li></ul>
-      <div class="tag-row"><span class="tag tag-orange">A/B Testing</span><span class="tag tag-pink">KOL Marketing</span><span class="tag tag-blue">Data-Driven</span></div>
-    </div>
+<div class="section fade-up" id="sec-experience">
+  <div class="section-title">🚀 <span id="s-exp">EXPERIENCE</span></div>
+  <div class="card card-accent-blue fade-up">
+    <div class="card-header"><div><h3 id="c1">🏢 JD.com</h3><div class="role" id="r1">Technical Product Manager Intern</div></div><span class="meta">Oct – Dec 2025</span></div>
+    <ul><li id="e1a">Led product design for Service Provider Workbench and Marketplace Expansion, standardizing service delivery and exit workflows.</li><li id="e1b">Designed a standardized exit process integrating fulfillment, after-sales, settlement, compliance, and risk control validations.</li><li id="e1c">Rebuilt non-periodic service fulfillment flows covering <span class="highlight">276 service types (25%)</span>, enabling reliable settlement and risk management.</li><li id="e1d">Built NPS dashboards for service quality analysis by time and service dimension.</li></ul>
+    <div class="tag-row"><span class="tag tag-blue">Platform Product</span><span class="tag tag-purple">Process Design</span><span class="tag tag-green">Data Dashboard</span></div>
   </div>
-</div>
-
-<!-- ═══ CAMPUS ═══ -->
-<div class="page-section" id="sec-campus">
-  <!-- Leadership -->
-  <div class="section fade-up">
-    <div class="section-title">🎓 <span id="s-campus">CAMPUS LEADERSHIP</span></div>
-    <div class="card card-accent-purple fade-up">
-      <div class="card-header"><div><h3 id="cam1">📋 Grade Assistant</h3><div class="role" id="cam1r">Southwest University · College of Commerce</div></div><span class="meta">2020 – 2022</span></div>
-      <ul><li id="cam1a">Managed grade-level administration, coordinating with counselors on student affairs and data processing.</li><li id="cam1b">Published <span class="highlight">50+ official documents</span>, organized 280+ students for professional meetings, mobilized 500+ students for grade assemblies.</li></ul>
-    </div>
-    <div class="card card-accent-blue fade-up">
-      <div class="card-header"><div><h3 id="cam2">🏛 Student Union Department Head</h3><div class="role" id="cam2r">Southwest University · College Level</div></div><span class="meta">2019 – 2020</span></div>
-      <ul><li id="cam2a">Led 10+ department members and 30+ student union members to organize professional competitions with 100+ participants.</li><li id="cam2b">Managed recruitment, team building, and regular meetings; received faculty recognition and official college media coverage.</li></ul>
-    </div>
-    <div class="card card-accent-green fade-up">
-      <div class="card-header"><div><h3 id="cam3">👥 Class President</h3><div class="role" id="cam3r">Southwest University · Marketing Class</div></div><span class="meta">2018 – 2020</span></div>
-      <ul><li id="cam3a">Coordinated class affairs, maintained lowest course failure rate in the department, organized class activities and events.</li><li id="cam3b">Served as bridge between students and faculty, fostering a collaborative and supportive class environment.</li></ul>
-    </div>
+  <div class="card card-accent-purple fade-up">
+    <div class="card-header"><div><h3 id="c2">🚗 DiDi</h3><div class="role" id="r2">Product Manager Intern</div></div><span class="meta">May – Sep 2025</span></div>
+    <ul><li id="e2a">Designed "User Quotation" feature for moving services, achieving <span class="highlight">31% adoption rate</span> covering nearly one-third of related orders.</li><li id="e2b">Built high-precision address collection system for autonomous vehicles from <span class="highlight">0→1</span>, increasing recommended address usage by 6%.</li><li id="e2c">Improved BD operational efficiency through CRM product enhancements, reducing fulfillment failures from address inaccuracies.</li></ul>
+    <div class="tag-row"><span class="tag tag-purple">User Experience</span><span class="tag tag-red">0→1 Product</span><span class="tag tag-orange">CRM</span></div>
   </div>
-  <!-- Awards -->
-  <div class="section fade-up">
-    <div class="section-title">🏆 <span id="s-awards">AWARDS & HONORS</span></div>
-    <div class="awards-grid">
-      <div class="award-item fade-up"><div class="award-year">2022</div><div class="award-name" id="aw1">Outstanding Graduate</div></div>
-      <div class="award-item fade-up"><div class="award-year">2021</div><div class="award-name" id="aw2">Second-Class Scholarship</div></div>
-      <div class="award-item fade-up"><div class="award-year">2020</div><div class="award-name" id="aw3">Merit Student (三好学生)</div></div>
-      <div class="award-item fade-up"><div class="award-year">2020</div><div class="award-name" id="aw4">Third-Class Scholarship</div></div>
-      <div class="award-item fade-up"><div class="award-year">2019</div><div class="award-name" id="aw5">National Encouragement Scholarship</div></div>
-      <div class="award-item fade-up"><div class="award-year">2019</div><div class="award-name" id="aw6">Outstanding Student Cadre</div></div>
-      <div class="award-item fade-up"><div class="award-year">2019</div><div class="award-name" id="aw7">Math Modeling Competition</div></div>
-      <div class="award-item fade-up"><div class="award-year">2020</div><div class="award-name" id="aw8">Innovation & Practice Competition</div></div>
-    </div>
+  <div class="card card-accent-green fade-up">
+    <div class="card-header"><div><h3 id="c3">📊 JD.com</h3><div class="role" id="r3">Data Analytics Intern</div></div><span class="meta">May – Jul 2024</span></div>
+    <ul><li id="e3a">Built Excel dashboards tracking order status, logistics, GMV by industry & region, driving <span class="highlight">GMV target achievement above 90%</span>.</li><li id="e3b">Applied RFM modeling to evaluate KA customer value, built GMV prediction models for acquisition and conversion analysis.</li><li id="e3c">Developed refined customer operation strategies, improving high-value customer conversion and new customer contribution by <span class="highlight">8%</span>.</li></ul>
+    <div class="tag-row"><span class="tag tag-green">Data Visualization</span><span class="tag tag-blue">RFM Model</span><span class="tag tag-orange">GMV Prediction</span></div>
+  </div>
+  <div class="card card-accent-orange fade-up">
+    <div class="card-header"><div><h3 id="c4">🎮 NetEase</h3><div class="role" id="r4">Ad Operations Intern</div></div><span class="meta">Mar – Jul 2023</span></div>
+    <ul><li id="e4a">Researched adult education market via analytics platforms, screening high-quality KOLs based on engagement, audience profiles, and niche positioning.</li><li id="e4b">Managed end-to-end KOL partnerships with <span class="highlight">100K+ follower</span> influencers: negotiation, monitoring, tracking, and strategy optimization.</li><li id="e4c">Explored CPS/CPA models, optimized ad creatives via A/B testing, achieving <span class="highlight">ROI 2.0+</span>.</li></ul>
+    <div class="tag-row"><span class="tag tag-orange">A/B Testing</span><span class="tag tag-pink">KOL Marketing</span><span class="tag tag-blue">Data-Driven</span></div>
   </div>
 </div>
 
 <!-- ═══ PROJECTS ═══ -->
-<div class="page-section" id="sec-projects">
-  <div class="section fade-up">
-    <div class="section-title">💡 <span id="s-proj">PROJECTS</span></div>
-    <div class="card project-card fade-up">
-      <div class="card-header"><div><h3>📱 LifeLog <span class="badge">Live</span></h3><div class="role" id="p1r">Personal Project · Product Design & Development</div></div><span class="meta" style="margin-right:0">2025</span></div>
-      <p id="p1d">A calendar-centric life journaling PWA with structured daily tracking (todos by time period + time investment tracking), mood/score recording, diary, and multi-dimensional insights. Designed and built end-to-end, from competitive analysis to cloud deployment.</p>
-      <div class="tag-row"><span class="tag tag-blue">React</span><span class="tag tag-purple">Supabase</span><span class="tag tag-green">PWA</span><span class="tag tag-orange">Product Design</span></div>
-      <a class="project-link" href="https://lifelog.yuliyang.top" target="_blank" id="p1link">View Live Demo →</a>
-    </div>
-    <div class="card fade-up" style="border-style:dashed;opacity:.5;text-align:center;padding:28px">
-      <p id="p2d" style="color:var(--ter)">🚧 More projects coming soon...</p>
-    </div>
+<div class="section fade-up" id="sec-projects">
+  <div class="section-title">💡 <span id="s-proj">PROJECTS</span></div>
+  <div class="card project-card fade-up">
+    <div class="card-header"><div><h3>📱 LifeLog <span class="badge">Live</span></h3><div class="role" id="p1r">Personal Project · Product Design & Development</div></div><span class="meta" style="margin-right:0">2025</span></div>
+    <p id="p1d">A calendar-centric life journaling PWA with structured daily tracking (todos by time period + time investment tracking), mood/score recording, diary, and multi-dimensional insights. Designed and built end-to-end, from competitive analysis to cloud deployment.</p>
+    <div class="tag-row"><span class="tag tag-blue">React</span><span class="tag tag-purple">Supabase</span><span class="tag tag-green">PWA</span><span class="tag tag-orange">Product Design</span></div>
+    <a class="project-link" href="https://lifelog.yuliyang.top" target="_blank" id="p1link">View Live Demo →</a>
+  </div>
+  <div class="card fade-up" style="border-style:dashed;opacity:.5;text-align:center;padding:28px">
+    <p id="p2d" style="color:var(--ter)">🚧 More projects coming soon...</p>
   </div>
 </div>
 
-<!-- ═══ EDUCATION ═══ -->
-<div class="page-section" id="sec-education">
-  <div class="section fade-up">
-    <div class="section-title">🎓 <span id="s-edu">EDUCATION</span></div>
-    <div class="edu-item fade-up">
-      <div class="edu-dot" style="background:var(--accent)"></div>
-      <div class="edu-content">
-        <h3>Northeastern University 🇺🇸 <span style="font-weight:400;font-size:13px;color:var(--ter)">— Seattle, WA</span></h3>
-        <div class="school-meta" id="edu1">M.S. in Computer Science · GPA 3.8/4.0 · 2023 – 2026</div>
-        <div class="courses" id="edu1c">📚 A/B Testing · Data Analysis · Algorithms · Data Visualization · Machine Learning</div>
-      </div>
-    </div>
-    <div class="edu-item fade-up">
-      <div class="edu-dot" style="background:var(--purple)"></div>
-      <div class="edu-content">
-        <h3 id="edu2t">Southwest University 🇨🇳 <span style="font-weight:400;font-size:13px;color:var(--ter)" id="edu2loc">— Chongqing, China</span></h3>
-        <div class="school-meta" id="edu2">Double Major: Marketing & Applied Psychology · Top 7% · 2018 – 2022</div>
-        <div class="courses" id="edu2c">📚 Statistics · Business Analytics · Consumer Behavior · Market Research · Strategic Management</div>
-      </div>
-    </div>
+<!-- ═══ CAMPUS ═══ -->
+<div class="section fade-up" id="sec-campus">
+  <div class="section-title">🏫 <span id="s-campus">CAMPUS LEADERSHIP</span></div>
+  <div class="card card-accent-purple fade-up">
+    <div class="card-header"><div><h3 id="cam1">📋 Grade Assistant</h3><div class="role" id="cam1r">Southwest University · College of Commerce</div></div><span class="meta">2020 – 2022</span></div>
+    <ul><li id="cam1a">Managed grade-level administration, coordinating with counselors on student affairs and data processing.</li><li id="cam1b">Published <span class="highlight">50+ official documents</span>, organized 280+ students for professional meetings, mobilized 500+ students for grade assemblies.</li></ul>
+  </div>
+  <div class="card card-accent-blue fade-up">
+    <div class="card-header"><div><h3 id="cam2">🏛 Student Union Department Head</h3><div class="role" id="cam2r">Southwest University · College Level</div></div><span class="meta">2019 – 2020</span></div>
+    <ul><li id="cam2a">Led 10+ department members and 30+ student union members to organize professional competitions with 100+ participants.</li><li id="cam2b">Managed recruitment, team building, and regular meetings; received faculty recognition and official college media coverage.</li></ul>
+  </div>
+  <div class="card card-accent-green fade-up">
+    <div class="card-header"><div><h3 id="cam3">👥 Class President</h3><div class="role" id="cam3r">Southwest University · Marketing</div></div><span class="meta">2018 – 2020</span></div>
+    <ul><li id="cam3a">Coordinated class affairs, maintained lowest course failure rate in the department, organized class activities and events.</li><li id="cam3b">Served as bridge between students and faculty, fostering a collaborative and supportive class environment.</li></ul>
+  </div>
+</div>
+
+<!-- ═══ AWARDS ═══ -->
+<div class="section fade-up" id="sec-awards">
+  <div class="section-title">🏆 <span id="s-awards">AWARDS & HONORS</span></div>
+  <div class="awards-grid">
+    <div class="award-item fade-up"><div class="award-year">2022</div><div class="award-name" id="aw1">Outstanding Graduate</div></div>
+    <div class="award-item fade-up"><div class="award-year">2021</div><div class="award-name" id="aw2">Second-Class Scholarship</div></div>
+    <div class="award-item fade-up"><div class="award-year">2020</div><div class="award-name" id="aw3">Merit Student (三好学生)</div></div>
+    <div class="award-item fade-up"><div class="award-year">2020</div><div class="award-name" id="aw4">Third-Class Scholarship</div></div>
+    <div class="award-item fade-up"><div class="award-year">2019</div><div class="award-name" id="aw5">National Encouragement Scholarship</div></div>
+    <div class="award-item fade-up"><div class="award-year">2019</div><div class="award-name" id="aw6">Outstanding Student Cadre</div></div>
+    <div class="award-item fade-up"><div class="award-year">2019</div><div class="award-name" id="aw7">Math Modeling Competition</div></div>
+    <div class="award-item fade-up"><div class="award-year">2020</div><div class="award-name" id="aw8">Innovation & Practice Competition</div></div>
+  </div>
+</div>
+
+<!-- ═══ SKILLS ═══ -->
+<div class="section fade-up" id="sec-skills">
+  <div class="section-title">⚡ <span id="s-skills">SKILLS</span></div>
+  <div class="skill-grid">
+    <div class="skill-card fade-up"><h4 id="sk1t">🎯 Product</h4><p id="sk1d">Requirement Analysis, Process Design, A/B Testing, User Behavior Analysis, PRD, Prototyping (Axure, Modao)</p><div class="skill-bar"><div class="skill-bar-fill" style="width:90%;background:var(--accent)"></div></div></div>
+    <div class="skill-card fade-up"><h4 id="sk2t">📈 Data & Technical</h4><p id="sk2d">SQL, Python, Java, Excel, PowerBI, Data Visualization, RFM Modeling</p><div class="skill-bar"><div class="skill-bar-fill" style="width:85%;background:var(--purple)"></div></div></div>
+    <div class="skill-card fade-up"><h4 id="sk3t">🛠 Tools & Languages</h4><p id="sk3d">Xmind, Figma, Git, React, Supabase · English (IELTS 6.5, CET-6) · Mandarin (Native)</p><div class="skill-bar"><div class="skill-bar-fill" style="width:80%;background:var(--green)"></div></div></div>
   </div>
 </div>
 
@@ -271,20 +263,14 @@ a{color:var(--accent);text-decoration:none;transition:all .2s}a:hover{opacity:.8
 </div>
 
 <script>
-// Section navigation
-function showSection(id){
-  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
-  document.getElementById('sec-'+id).classList.add('active');
-  document.querySelectorAll('.nav-links a[id^="nav-"]').forEach(a=>a.classList.remove('active'));
-  const navEl=document.getElementById('nav-'+id);if(navEl)navEl.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-  // Re-observe for animations
-  document.querySelectorAll('.fade-up:not(.visible)').forEach(el=>obs.observe(el));
-}
-
 // Scroll animation
 const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// Nav highlight on scroll
+const sections=['about','education','experience','projects','campus','awards','skills'];
+const navObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('active'));const link=document.querySelector(`.nav-link[href="#${e.target.id}"]`);if(link)link.classList.add('active')}})},{threshold:.2,rootMargin:'-60px 0px -60% 0px'});
+sections.forEach(id=>{const el=document.getElementById('sec-'+id);if(el)navObs.observe(el)});
 
 // Language
 const zh={
@@ -311,8 +297,8 @@ const zh={
   "sk3t":"🛠 工具与语言","sk3d":"Xmind、Figma、Git、React、Supabase · 英语（雅思6.5、CET-6）· 普通话（母语）",
 };
 // Nav labels
-const navZh={"nav-about":"关于","nav-experience":"实习","nav-campus":"校园","nav-projects":"项目","nav-education":"教育"};
-const navEn={"nav-about":"About","nav-experience":"Experience","nav-campus":"Campus","nav-projects":"Projects","nav-education":"Education"};
+const navZh={"sec-about":"关于","sec-education":"教育","sec-experience":"实习","sec-projects":"项目","sec-campus":"校园","sec-awards":"奖项","sec-skills":"技能"};
+const navEn={"sec-about":"About","sec-education":"Education","sec-experience":"Experience","sec-projects":"Projects","sec-campus":"Campus","sec-awards":"Awards","sec-skills":"Skills"};
 
 const en={};
 document.addEventListener('DOMContentLoaded',()=>{
@@ -323,7 +309,7 @@ function toggleLang(lang){
   const texts=lang==='zh'?zh:en;
   Object.entries(texts).forEach(([id,text])=>{const el=document.getElementById(id);if(el)el.textContent=text});
   const navTexts=lang==='zh'?navZh:navEn;
-  Object.entries(navTexts).forEach(([id,text])=>{const el=document.getElementById(id);if(el)el.textContent=text});
+  Object.entries(navTexts).forEach(([id,text])=>{const el=document.querySelector(`.nav-link[href="#${id}"]`);if(el)el.textContent=text});
   document.querySelectorAll('.lang-toggle button').forEach(btn=>{btn.classList.toggle('active',btn.textContent===(lang==='zh'?'中':'EN'))});
 }
 </script>
